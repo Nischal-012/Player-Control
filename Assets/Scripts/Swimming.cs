@@ -62,13 +62,12 @@ public class Swimming : MonoBehaviour
     {
         if (other.gameObject.CompareTag(waterTag))
         {
-
             inTheWater = true;
             water = other.gameObject;
             waterHeightLevel = other.transform.position.y;
             originalMoveSpeed = playerController.speed;
             var newPos = new Vector3(transform.position.x, other.transform.position.y, transform.position.z);
-            Instantiate(impactEffect, newPos, playerController.transform.rotation); ;
+            Instantiate(impactEffect, newPos, playerController.transform.rotation); 
             
         }
     }
