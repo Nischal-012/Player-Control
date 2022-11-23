@@ -8,6 +8,9 @@ TagManager:
   - CinemachineTarget
   - Ground
   - Hover
+  - Jetpack
+  - Car
+  - WaterCollider
   layers:
   - Default
   - TransparentFX
