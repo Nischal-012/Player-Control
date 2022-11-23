@@ -15,7 +15,7 @@ public class GettingInOut : MonoBehaviour
     [SerializeField] Collider waterCol2;
     [SerializeField] Collider waterCol3;
     [SerializeField] Collider waterCol4;
-    public ThirdPersonController thirdPersonController;
+    [SerializeField] ThirdPersonController thirdPersonController;
    
     void Update()
     {

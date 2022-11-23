@@ -5,19 +5,19 @@ using StarterAssets;
 
 public class HoverController : MonoBehaviour
 {
-	public float accleration;
-	public float rotationRate;
-	public float turnRotationAngle;
-	public float turnRotationSeekSpeed;
-	public float vertical;
-	public float horizontal;
-
-	public Rigidbody rb;
-	private float rotationVelocity;
-	public ThirdPersonController thirdPersonController;
-	public bool hasPlayer;
+	[SerializeField] private float accleration;
+	[SerializeField] private float rotationRate;
+	[SerializeField] float turnRotationAngle;
+	[SerializeField] float turnRotationSeekSpeed;
+	[SerializeField] Rigidbody rb;
+	[SerializeField] ThirdPersonController thirdPersonController;
 	[SerializeField] GameObject human;
 	[SerializeField] GameObject Hover;
+
+	float vertical;
+	float horizontal;
+	bool hasPlayer;
+	private float rotationVelocity;
 	private void FixedUpdate()
 	{
 		if (hasPlayer)
@@ -63,7 +63,6 @@ public class HoverController : MonoBehaviour
 		thirdPersonController.onJetPack = false;
 		human.transform.position = gameObject.transform.position + gameObject.transform.TransformDirection(Vector3.left);
 		thirdPersonController.charController.enabled = true;
-		thirdPersonController.onVehicle = false;
 		thirdPersonController.playerFollowCamera.SetActive(true);
 		thirdPersonController.hoverFollowCamera.SetActive(false);
 		hasPlayer = false;
