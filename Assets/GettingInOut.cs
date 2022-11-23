@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Vehicles.Car;
 using StarterAssets;
+using UnityEngine.SceneManagement;
 
 public class GettingInOut : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GettingInOut : MonoBehaviour
     [SerializeField] Collider waterCol3;
     [SerializeField] Collider waterCol4;
     public ThirdPersonController thirdPersonController;
+   
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F))
@@ -38,7 +40,14 @@ public class GettingInOut : MonoBehaviour
         waterCol3.isTrigger = true;
         waterCol4.isTrigger = true;
     }
-    private void GetOutOfCar()
+	private void OnTriggerEnter(Collider other)
+	{
+		if(other.gameObject.tag == "WaterCollider")
+		{
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		}
+	}
+	private void GetOutOfCar()
     {
         human.SetActive(true);
         thirdPersonController.playerFollowCamera.SetActive(true);
